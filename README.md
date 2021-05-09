@@ -1,5 +1,7 @@
 # fictional-robot
 
+# Ethereum Tokens
+
 ## Technology and Infrastructure 
 * Micro Services to be coded in different languages i would code them in kotlin or python
 	* Google Cloud is my Prefered hosting platform.
@@ -19,7 +21,6 @@
 * Coursers Service
 * Subject Service
 * Discovery(Search) Service
-* View Manager Service
 
 
 
@@ -34,12 +35,12 @@ eg roles Teacher , student ,admin etc.
  * Login API
 	* Name : `/login`
 	* Table used : users and roles 
-	* Method : POST
+	* Method : `POST`
 	* Input 
 		 `{"username":"nitrek","password":"userpass"}`
 	* Output 
-		* On Success : jwt token
-		* On Failure : 403
+		* On Success : `jwt token`
+		* On Failure : `403`
 
 ## Tags Microservice 
  Tables:
@@ -50,17 +51,17 @@ eg roles Teacher , student ,admin etc.
  * Create Tag API
 	* Name : `/tag`
 	* Table used : tag
-	* HTTPMethod : POST
+	* HTTPMethod : `POST`
 	* Input 
 		 `{"content-id","tag list"}`
 	* Output 
-		* On Success : 200
-		* On Failure : 500
+		* On Success : `200`
+		* On Failure : `500`
 	* Remarks : Api fetched Content type from content id.
 * Delete Tag API
 	* Name : `/tag`
 	* Table used : tag
-	* HTTPMethod : DELETE
+	* HTTPMethod : `DELETE`
 	* Input 
 		 `{"tag-id"}`
 	* Output 
@@ -79,7 +80,7 @@ Tag microservice
  * Upload Video API : Upload Video to GCP Storage.
 	* Name : `/video`
 	* Table used : video
-	* HTTPMethod : POST
+	* HTTPMethod : `POST`
 	* Input 
 		 `{"name ","title ","desiription","video type",Video File,tags list}`
 	* Output 
@@ -100,7 +101,7 @@ Tag & Video microservice
  * List Webinar.
 	* Name : `/webinar`
 	* Table used : Webinar 
-	* HTTPMethod : GET
+	* HTTPMethod : `GET`
 	* Input : `<optional> search keyword or tag(s)`
 	* Output 
 		* On Success : `List of all webinars based on input and role`
@@ -110,7 +111,7 @@ Tag & Video microservice
 	* Name : `/webinar`
 	* Table used : `webinar` 
     * Other Api used : ` post /video and post /tags`
-	* HTTPMethod : POST
+	* HTTPMethod : `POST`
 	* Input : `name,title,description,videofile,<optional>tag(s)`
 	* Output 
 		* On Success : `200`
@@ -132,16 +133,25 @@ Tag & Video microservice
  * List courses .
 	* Name : `/courses `
 	* Table used : `Courses` 
-	* HTTPMethod : GET
+	* HTTPMethod : `GET`
 	* Input : `<optional> search keyword or tag(s)`
 	* Output 
 		* On Success : `List of all courses based on search or tag if provided`
 		* On Failure : `403,500`
 
+ * List course Webinars/Videos.
+	* Name : `/coursesWebinarsVideos`
+	* Table used : `Courses` 
+	* HTTPMethod : `GET`
+	* Input : `courseid,type(webinar/videos/both)`
+	* Output 
+		* On Success : `List of all webinars/video(based on type in input) based on courseid`
+		* On Failure : `403,500`
+
  * My courses .
 	* Name : `/mycourses `
 	* Table used : `Courses ,CourseTeacher  ,CourseStudents ` 
-	* HTTPMethod : GET
+	* HTTPMethod : `GET`
 	* Input : `<optional> search keyword or tag(s)`
 	* Output 
 		* On Success : `List of all  my course based on input and role`
@@ -150,7 +160,7 @@ Tag & Video microservice
  * Enroll in course .
 	* Name : `/enrollcourse `
 	* Table used : `Courses,CourseStudents ` 
-	* HTTPMethod : GET
+	* HTTPMethod : `GET`
 	* Input : `courseid`
 	* Output 
 		* On Success : `200`
@@ -170,11 +180,12 @@ Tag & Video microservice
  * Delete course.
 	* Name : `/course`
 	* Table used : `Courses,CourseTeacher,CourseStudents ` 
-	* HTTPMethod : DELETE
+	* HTTPMethod : `DELETE`
 	* Input : `courseid`
 	* Output 
 		* On Success : `200`
 		* On Failure : `403,500`
+	
 ## Subjects APIs and Tables
 ```
 1 > Subjects: id | name | title | description | video-id(s) | webinar-id(s) | views
@@ -189,16 +200,25 @@ Tag & Video microservice
  * List subjects.
 	* Name : `/subject`
 	* Table used : `subject` 
-	* HTTPMethod : GET
+	* HTTPMethod : `GET`
 	* Input : `<optional> search keyword or tag(s)`
 	* Output 
 		* On Success : `List of all subject based on search or tag if provided`
 		* On Failure : `403,500`
 
+ * List subject  Webinars/Videos.
+	* Name : `/subject  WebinarsVideos`
+	* Table used : `subject`
+	* HTTPMethod : `GET`
+	* Input : `courseid,type(webinar/videos/both)` `
+	* Output 
+		* On Success : `List of all webinars/video(based on type in input) based on courseid`
+		* On Failure : `403,500`
+
  * My subjects.
 	* Name : `/mysubject `
 	* Table used : `subject,SubjectTeacher ,SubjectStudents ` 
-	* HTTPMethod : GET
+	* HTTPMethod : `GET`
 	* Input : `<optional> search keyword or tag(s)`
 	* Output 
 		* On Success : `List of all  my subject based on input and role`
@@ -207,7 +227,7 @@ Tag & Video microservice
  * Enroll in subject.
 	* Name : `/enrollsubjects `
 	* Table used : `subject,SubjectStudents ` 
-	* HTTPMethod : GET
+	* HTTPMethod : `GET`
 	* Input : `subjectid`
 	* Output 
 		* On Success : `200`
@@ -217,7 +237,7 @@ Tag & Video microservice
 	* Name : `/subject`
 	* Table used : `subject,subjectTeacher`
     * Other Api used : ` post /video and post /tags`
-	* HTTPMethod : POST
+	* HTTPMethod : `POST`
 	* Input : `name,title,description,<optional>videofile(s),<optional>videoid(s),<optional>webinarid(s),<optional>tag(s)`
 	* Output 
 		* On Success : `200`
@@ -227,8 +247,29 @@ Tag & Video microservice
  * Delete subject.
 	* Name : `/subject`
 	* Table used : `subject,SubjectStudents,SubjectTeacher  ` 
-	* HTTPMethod : DELETE
+	* HTTPMethod : `DELETE`
 	* Input : `subjectid`
 	* Output 
 		* On Success : `200`
 		* On Failure : `403,500`
+
+# Search & Recommendation Service
+
+Other Microservices this uses
+```
+all above microservice 
+
+```
+* Search 
+	* name : `/search`
+	*  HTTPMethod : GET
+	* Input : `search tearm,<optional>findid(title/tag/description)`
+	* Output : `list of courses,subjects,videos and webinars`
+	* Remarks : Simple search that tokenises the search term and finds it in tags , titles 
+
+* recommended Course 
+	*  name : `/recommendation`
+	*  HTTPMethod : GET
+	* Input : `video-id`
+	* Output : `list of courses,subjects,videos and webinars related to video`
+	* Remarks : uses video id to get all related tags of the video and corresponding course and return related course,subject etc sorting by popularity 
