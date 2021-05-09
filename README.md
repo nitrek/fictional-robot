@@ -1,7 +1,5 @@
 # fictional-robot
 
-# Ethereum Tokens
-
 ## Technology and Infrastructure 
 * Micro Services to be coded in different languages i would code them in kotlin or python
 	* Google Cloud is my Prefered hosting platform.
