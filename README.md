@@ -1,6 +1,5 @@
 # fictional-robot
 
-
 ## Technology and Infrastructure 
 * Micro Services to be coded in different languages i would code them in kotlin or python
 	* Google Cloud is my Prefered hosting platform.
@@ -87,10 +86,29 @@ Tag microservice
 		* On Failure : `403,500`
 	* Remarks : Using tags api to save tags using  `GET /tag` api passing the video id content id
 
+ * Stream  Video API : Stream vidoe file via api.
+	* Name : `/video`
+	* Table used : `video`
+	* HTTPMethod : `GET`
+	* Input 
+		 `videoid`
+	* Output 
+		* On Success : `200`
+		* On Failure : `403,500`
+	* Remarks : Using tags api to save tags using  `GET /tag` api passing the video id content id
+
+ * List Videos.
+	* Name : `/videos`
+	* Table used : Webinar 
+	* HTTPMethod : `GET`
+	* Input : `<optional> search keyword or tag(s),<optional>orderby(views)`
+	* Output 
+		* On Success : `List of all videos based on input and role`
+		* On Fail : `200`
 ## Webinar Service API and Tables 
  Tables:
 ```
-1 > Webinar : id | name | title | description | video-id  
+1 > Webinar : id | name | title | description | video-id | views
 ```
 Other Microservices this uses
 ```
@@ -101,7 +119,7 @@ Tag & Video microservice
 	* Name : `/webinar`
 	* Table used : Webinar 
 	* HTTPMethod : `GET`
-	* Input : `<optional> search keyword or tag(s)`
+	* Input : `<optional> search keyword or tag(s),<optional>orderby(views)`
 	* Output 
 		* On Success : `List of all webinars based on input and role`
 		* On Failure : `403,500`
@@ -133,7 +151,7 @@ Tag & Video microservice
 	* Name : `/courses `
 	* Table used : `Courses` 
 	* HTTPMethod : `GET`
-	* Input : `<optional> search keyword or tag(s)`
+	* Input : `<optional> search keyword or tag(s),<optional>orderby(views)`
 	* Output 
 		* On Success : `List of all courses based on search or tag if provided`
 		* On Failure : `403,500`
@@ -211,7 +229,7 @@ Tag & Video microservice
 	* Name : `/subject`
 	* Table used : `subject` 
 	* HTTPMethod : `GET`
-	* Input : `<optional> search keyword or tag(s)`
+	* Input : `<optional> search keyword or tag(s),<optional>orderby(views)`
 	* Output 
 		* On Success : `List of all subject based on search or tag if provided`
 		* On Failure : `403,500`
@@ -294,3 +312,4 @@ all above microservice
 	* Input : `video-id`
 	* Output : `list of courses,subjects,videos and webinars related to video`
 	* Remarks : uses video id to get all related tags of the video and corresponding course and return related course,subject etc sorting by popularity 
+
