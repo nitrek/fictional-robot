@@ -1,5 +1,4 @@
 # fictional-robot
-Proximity Backend Engineering Challenge Solution Challenge Link : https://proximity-tech.github.io/be-challenge/
 
 ## Technology and Infrastructure 
 * Micro Services to be coded in different languages i would code them in kotlin or python
