@@ -1,4 +1,33 @@
+
 # fictional-robot
+
+## Problem Statement:
+
+You need to build a Rest API where an  `instructor`  and  `student`  manage their  `Webinars`  &  `Courses`. A Creator can create  `course`,  `subjects`,  `tags`  and they can upload  `videos`  and  `webinars`  to the system. Lessons & webinars can be present in multiple  `courses`  and  `subjects`. A Student can then search for webinars and/or videos using  `webinar title`,  `video title`,  `course name`  and  `subject name`, and can filter using  `course`,  `subjects`  and  `tags`. Build the application keeping in mind that data duplicacy and time complexity should be minimized.
+## User Stories 
+
+ *  As an instructor, I can upload a webinar.
+	 * using `/webinar` api
+ *   As an instructor, I can create, edit, delete course.
+	 * using `course microservice` 
+ *  As an instructor, I can create, edit, delete subjects.
+	 * using `subject microservice` 
+ *   As an instructor, I can create, edit, delete tags.
+	 * using `tags microservice` 
+ *  As an instructor, I can upload a video.
+	 * using `upload video api of video  microservice`
+ *  As an instructor, I can add new tag while uploading video or webinar.
+ 	 * using `Create Tag API of tags microservice` 
+ *   As an instructor, I can see the most viewed videos, courses and webinars.
+	 * using `list api of course/subject/video/webinar api and subblying the orderby param as views`
+ *  As a student, I can see list of webinars & videos.
+	 *  using `list api of video/webinar`
+ *   As a student, I can search webinars & videos by title.
+	 * using ` seach api `
+ *  As a student, I can filter webinars & videos by course, subjects, tags.
+	 *  using `search api`
+ *  As a student, when I am playing a video or a webinar, I can get personalized suggestions of courses/webinars.
+	 * using `recommendation api`
 
 ## Technology and Infrastructure 
 * Micro Services to be coded in different languages i would code them in kotlin or python
