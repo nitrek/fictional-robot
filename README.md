@@ -1,5 +1,6 @@
 # fictional-robot
 
+
 ## Technology and Infrastructure 
 * Micro Services to be coded in different languages i would code them in kotlin or python
 	* Google Cloud is my Prefered hosting platform.
@@ -168,7 +169,18 @@ Tag & Video microservice
 	* Name : `/course`
 	* Table used : `Courses,CourseTeacher` 
     * Other Api used : ` post /video and post /tags`
-	* HTTPMethod : POST
+	* HTTPMethod : `POST`
+	* Input : `name,title,description,<optional>videofile(s),<optional>videoid(s),<optional>webinarid(s),<optional>tag(s)`
+	* Output 
+		* On Success : `200`
+		* On Failure : `403,500`
+	* Remarks : Using video api to upload video , tag api  to create tag.
+
+ * Update courses 
+	* Name : `/course`
+	* Table used : `Courses,CourseTeacher` 
+    * Other Api used : ` post /video and post /tags`
+	* HTTPMethod : `PUT`
 	* Input : `name,title,description,<optional>videofile(s),<optional>videoid(s),<optional>webinarid(s),<optional>tag(s)`
 	* Output 
 		* On Success : `200`
@@ -236,6 +248,17 @@ Tag & Video microservice
 	* Table used : `subject,subjectTeacher`
     * Other Api used : ` post /video and post /tags`
 	* HTTPMethod : `POST`
+	* Input : `name,title,description,<optional>videofile(s),<optional>videoid(s),<optional>webinarid(s),<optional>tag(s)`
+	* Output 
+		* On Success : `200`
+		* On Failure : `403`
+	* Remarks : Using video api to upload video , tag api  to create tag.
+
+* Update subject
+	* Name : `/subject`
+	* Table used : `subject,subjectTeacher`
+    * Other Api used : ` post /video and post /tags`
+	* HTTPMethod : `PUT`
 	* Input : `name,title,description,<optional>videofile(s),<optional>videoid(s),<optional>webinarid(s),<optional>tag(s)`
 	* Output 
 		* On Success : `200`
